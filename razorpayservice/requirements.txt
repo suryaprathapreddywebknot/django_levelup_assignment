@@ -1,0 +1,10 @@
+
+Django>=3.2
+djangorestframework>=3.12
+djangorestframework-simplejwt>=4.8
+psycopg2==2.9.9
+drf-yasg==1.21.7
+
+
+
+

@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    ports:
+      - "8080:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: spreddy8951@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: Surya@04
+    networks:
+      - mynetwork
+
+  db:
+    image: postgres
+    container_name: db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Surya@04
+    ports:
+      - "5432:5432"
+    networks:
+      - mynetwork
+
+  razorpayservice:
+    build:
+      context: ./razorpayservice
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./razorpayservice:/app
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+networks:
+  mynetwork:
