@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',  
     'authapp',
+    'documentsapp',
     'drf_yasg'
 ]
 
@@ -159,4 +160,8 @@ PASSWORD_HASHERS = [
 ]
 
 AUTH_USER_MODEL = 'authapp.CustomUser'
+
+MEDIA_URL = '/documents/'
+MEDIA_ROOT = BASE_DIR / "documents"
+
 
