@@ -17,12 +17,14 @@ schema_view = get_schema_view(
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
+    authentication_classes=()
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('authapp.urls')),
     path('api/', include('documentsapp.urls')),
+    path('api/', include('attendenceapp.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]

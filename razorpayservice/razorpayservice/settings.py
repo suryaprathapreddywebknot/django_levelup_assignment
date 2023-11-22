@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',  
     'authapp',
     'documentsapp',
+    'attendenceapp',
     'drf_yasg'
 ]
 
@@ -146,10 +147,10 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': False,
     'ALGORITHM': 'HS256',
     "SIGNING_KEY": "5ahp8kseKOVB_w",
-    'AUTH_HEADER_TYPES': ('Bearer',),
-    'USER_ID_FIELD': 'id',
-    'USER_ID_CLAIM': 'user_id',
-    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    # 'AUTH_HEADER_TYPES': ('Bearer',),
+    # 'USER_ID_FIELD': 'id',
+    # 'USER_ID_CLAIM': 'user_id',
+    # 'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
 }
 
 
@@ -163,5 +164,13 @@ AUTH_USER_MODEL = 'authapp.CustomUser'
 
 MEDIA_URL = '/documents/'
 MEDIA_ROOT = BASE_DIR / "documents"
+
+
+SWAGGER_SETTINGS = {
+    "USE_SESSION_AUTH": False,  # disable django login button
+    "SECURITY_DEFINITIONS": {
+        "Bearer": {"type": "apiKey", "name": "Authorization", "in": "header"}
+    },
+}
 
 
