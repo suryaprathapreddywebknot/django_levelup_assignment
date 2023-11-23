@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'authapp',
     'documentsapp',
     'attendenceapp',
+    'birthdaysapp',
     'drf_yasg'
 ]
 
