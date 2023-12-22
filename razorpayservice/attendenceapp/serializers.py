@@ -16,7 +16,6 @@ class AttendenceSerializer(serializers.ModelSerializer):
         # Check if the user making the request is an admin
         user = self.context['request'].user
         if user.role == 'admin':
-            print('-------------------------------','admin',instance.isApprooved,validated_data)
             # Allow admin users to update the isApproved field
             instance.isApprooved = validated_data.get('isApprooved', instance.isApprooved)
         # Ignore isApprooved field if the user is not an admin

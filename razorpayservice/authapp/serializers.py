@@ -31,3 +31,8 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError("Both email and password are required.")
 
         return data
+
+class CustomUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser  # Assuming this is your CustomUser model
+        fields = ['id', 'name', 'email', 'mobile','dob']

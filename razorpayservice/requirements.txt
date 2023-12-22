@@ -4,6 +4,11 @@ djangorestframework>=3.12
 djangorestframework-simplejwt>=4.8
 psycopg2==2.9.9
 drf-yasg==1.21.7
+django-crontab==0.7.1
+django-storages==1.14.2
+boto3==1.29.7
+reportlab==4.0.7
+django-ses==3.5.2
 
 
 
